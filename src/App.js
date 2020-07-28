@@ -1,21 +1,29 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Posts from "./components/Posts";
 import About from "./components/About";
-// import articles from "./articles.json";
+import Article from "./components/Article";
 
 function App() {
+  const articles = require("./articles.json").article;
   return (
     <Router>
       <div className="App">
         <Nav />
-        <Route path="/" />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/posts" component={Posts} />
+          <Route path="/" exact={true} component={Home} />
+          <Route
+            path="/posts"
+            exact={true}
+            component={() => <Posts articles={articles} />}
+          />
+          <Route
+            path="/posts/:id"
+            component={() => <Article article={articles} />}
+          />
           <Route path="/about" component={About} />
         </Switch>
       </div>

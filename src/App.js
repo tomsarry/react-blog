@@ -19,10 +19,7 @@ function App() {
             exact={true}
             component={() => <Posts articles={articles} />}
           />
-          <Route
-            path="/posts/:id"
-            component={() => <Article article={articles} />}
-          />
+          <Route path="/posts/:id" component={Article} />
           <Route path="/about" component={About} />
         </Switch>
       </div>

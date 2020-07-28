@@ -1,12 +1,13 @@
 import React from "react";
+import "../articles.json";
 
 const Article = (props) => {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get("id");
+  // get article id and find it on the json file
+  const id = props.match.params.id;
+  const articles = require("../articles.json").article;
 
-  const article = props.article.find((article) => {
-    return article.id === product;
+  const article = articles.find((article) => {
+    return article.id === id;
   });
 
   return (

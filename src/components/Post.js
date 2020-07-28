@@ -22,10 +22,7 @@ const Post = (props) => {
 
       <p>{content}</p>
       <button className="btn-primary">
-        <Link
-          to={{ pathname: `/posts/${article.id}`, search: `id=${article.id}` }}
-          className="btn-link"
-        >
+        <Link to={`/posts/${article.id}`} className="btn-link">
           See Post
         </Link>
       </button>

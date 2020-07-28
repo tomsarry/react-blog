@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import "../articles.json";
 import Post from "./Post";
 
 function Posts(props) {

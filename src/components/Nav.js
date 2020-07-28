@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Nav() {
   // add class instead

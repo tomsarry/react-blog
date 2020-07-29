@@ -1,14 +1,19 @@
-import React from "react";
-import "../articles.json";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 const Article = (props) => {
-  // get article id and find it on the json file
+  const [article, setArticle] = useState({});
   const id = props.match.params.id;
-  const articles = require("../articles.json").article;
 
-  const article = articles.find((article) => {
-    return article.id === id;
-  });
+  useEffect(() => {
+    // download article
+    axios.get("http://localhost:8080/posts/" + id).then((response) => {
+      var result = response.data;
+      // set article
+      setArticle(result);
+      return response.data;
+    });
+  }, [id]);
 
   return (
     <div>
@@ -23,5 +28,4 @@ const Article = (props) => {
     </div>
   );
 };
-
 export default Article;

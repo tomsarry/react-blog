@@ -7,7 +7,8 @@ const Article = (props) => {
 
   useEffect(() => {
     // download article
-    axios.get("http://localhost:8080/posts/" + id).then((response) => {
+
+    axios.get(process.env.REACT_APP_API + "posts/" + id).then((response) => {
       var result = response.data;
       // set article
       setArticle(result);
